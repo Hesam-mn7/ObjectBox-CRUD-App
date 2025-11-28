@@ -2,7 +2,7 @@ package com.example.myapplication.data
 
 import io.objectbox.Box
 
-class CustomerRepository {
+class CustomerRepositoryObjectBox {
 
     // Box همان چیزی است که رویش CRUD انجام می‌دهیم
     private val customerBox: Box<Customer> = ObjectBox.box(Customer::class.java)

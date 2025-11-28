@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -40,7 +41,6 @@ android {
 }
 
 dependencies {
-    // --- چیزهایی که خودت داشتی ---
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -57,10 +57,32 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    // --- این دو خط مهم برای Browser ---
-    debugImplementation("io.objectbox:objectbox-android-objectbrowser:5.0.1")
-    releaseImplementation("io.objectbox:objectbox-android:5.0.1")
+    // objectbox
+    debugImplementation(libs.objectbox.android.objectbrowser)
+    releaseImplementation(libs.objectbox.android)
+
+    // Network + JSON
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.kotlinx.serialization)
+    implementation(libs.okhttp.logging)
+    implementation(libs.kotlinx.serialization.json)
+
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.kotlinx.serialization)
+
+    
+    implementation(libs.androidx.lifecycle.runtime.compose)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+
+    // Coroutines
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+
+    // MVVM / ViewModel
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.runtime.compose)
+
 }
 
-// 🔥 باید بعد از dependencies باشه
 apply(plugin = "io.objectbox")

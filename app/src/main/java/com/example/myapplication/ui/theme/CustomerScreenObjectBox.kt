@@ -14,12 +14,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.myapplication.data.Customer
-import com.example.myapplication.data.CustomerRepository
+import com.example.myapplication.data.CustomerRepositoryObjectBox
 
 @Composable
 fun CustomerScreen() {
     // Repository را یک‌بار می‌سازیم (با remember)
-    val repository = remember { CustomerRepository() }
+    val repository = remember { CustomerRepositoryObjectBox() }
 
     // Stateها برای فرم
     var name by remember { mutableStateOf("") }
